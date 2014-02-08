@@ -8,16 +8,17 @@ def getResult(feeling):
                                 "X-Mashape-Authorization": "rHozCQvZPwVGYmnHEd48nqJ7rix398tY"
                             },
                             params={ 
-                            "txt": "Today is  a good day"
+                            "txt": feeling
                             }
                         );
     return response;
 
+
 def getConfidence(feeling):
-    response=getResult(feeling)
+    response=getResult(feeling).body
     return response['result']['confidence']
 
 def getPositive(feeling):
-    response=getResult(feeling)
-    return response['result']['Positive']
+    response=getResult(feeling).body
+    return response['result']['sentiment']
 

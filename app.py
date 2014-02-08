@@ -4,22 +4,25 @@ import tweetSentiment
 
 app = Flask(__name__)
 
-@app.route("/")
+
+@app.route("/", methods=['GET','POST'])
 def index():
     if request.method=="GET":
-        return render_template("main.html")
-    elif request.method=="POST":
-        print request.form['button']
-        if request.form['button']=="emotion":
+        return render_template("main.html",answer=False)
+
+    if request.method=="POST":
+        if request.form['emotion']=="emotion":
             emotion=request.form['emotionvalue']
             positive=tweetSentiment.getPositive(emotion)
             percent=tweetSentiment.getConfidence(emotion)
-            print "here"
             return render_template("main.html",positive=positive,confidence=percent,answer=True)
 
 @app.route("/results")
-def results():
-    return render_template("main.html",)
+def results(emotion):
+    positive=tweetSentiment.getPositive(emotion)
+    percent=tweetSentiment.getConfidence(emotion)
+    return render_template("main.html",positive=positive,confidence=percent,answer=True)
+
 
 if __name__=="__main__":
     app.debug=True

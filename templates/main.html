@@ -14,13 +14,12 @@
   <div class="container">
     <div align="center">
       <font face="georgia"><h1>How am I Feeling Right Now?</h1></font>
-      <form method="POST" action="" name="emotion-search" class="emotion-search">
-	<input name="emotionvalue" id="emotionvalue" type="text" placeholder="Enter sentence." class="emotion">
-	<p align="center"><button name="emotion" id="emotion" class="btn btn-large btn-info" name="feel" type="submit">Feel</button></p>
+      <form method="POST" action="/" name="emotion-search" class="emotion-search">
+	<input name="emotionvalue" type="text" placeholder="Enter sentence." class="emotion">
+	<p align="center"><button name="emotion" class="btn btn-large btn-info" type="submit" value="emotion">Feel</button></p>
       </form>
       {% if answer %}
-      <h3>You feel {positive} right now!</h3>
-      <h3>You have {confidence}% confidence!</h3>
+      <h3>We are <font color="red">{{ confidence }}% </font> positive that you feel <font color="red">{{ positive }} </font> right now!</h3>
       {% endif %}
     </div>
 
