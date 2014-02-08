@@ -1,13 +1,20 @@
 from flask import Flask
 from flask import render_template, url_for, redirect,request
-import urllib2,json
-import utils
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    render_template("main")
+    if request.method=="GET":
+        return render_template("main.html")
+    elif request.method=="POST":
+        if request.form['button']=="emotion":
+            emotion=request.form['emotionvalue']
+            return redirect(url_for("results"))
+
+@app.route("/feel")
+def results():
+    render_template("results.html")
 
 if __name__=="__main__":
     app.debug=True
