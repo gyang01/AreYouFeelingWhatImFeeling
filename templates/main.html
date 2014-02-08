@@ -11,38 +11,44 @@
 </head>
 
 <body>
-
-<div class="navbar navbar-static-top">
-</div>
-
-  <div class="container">
-    <div align="center">
-      <font face="georgia"><h1>How am I Feeling Right Now?</h1></font>
-      <form method="POST" action="/" name="emotion-search" class="emotion-search">
-	<input name="emotionvalue" type="text" placeholder="Enter sentence." class="emotion">
-	<p align="center"><button name="emotion" class="btn btn-large btn-info" type="submit" value="emotion">Feel</button></p>
-      </form>
-      {% if answer %}
-      <h3>We are <font color="red">{{ confidence }}% </font> positive that you feel <font color="red">{{ positive }} </font> right now!</h3>
-      {% endif %}
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
     </div>
   </div>
-  <script src="static/js/jquery-1.11.1.min.js"/>
+</div>
+
+<div class="container">
+  <div align="center">
+    <font face="georgia"><h1>How am I Feeling Right Now?</h1></font>
+    <form method="POST" action="/" name="emotion-search" class="emotion-search">
+      <input name="emotionvalue" type="text" placeholder="Enter sentence." class="emotion">
+      <p align="center"><button name="emotion" class="btn btn-large btn-info" type="submit" value="emotion">Feel</button></p>
+    </form>
+    {% if answer %}
+    <h3>We are <font color="red">{{ confidence }}% </font> positive that you feel <font color="red">{{ positive }} </font> right now!</h3>
+    {% endif %}
+    </div>
+</div>
+<script src="static/js/jquery-1.11.1.min.js"/>
 <!--  <script src="static/js/validate.min.js"/>
-  <script>
-    var validator = new FormValidator("emotion-search",[{
+      <script>
+	var validator = new FormValidator("emotion-search",[{
     name: 'emotion',
-    display: 'ONE WORD ONLY',
-    rules: 'required|no_space'
-    }),
-    function(errors, event){
-    if(errors.length > 0){
+	display: 'ONE WORD ONLY',
+	rules: 'required|no_space'
+	}),
+	function(errors, event){
+	if(errors.length > 0){
     var errorString='No Spaces. ONE Word Only!';
-    }
-    el.innerHTML=errorString;
-    }
+	}
+	el.innerHTML=errorString;
+	}
     )
-     validation for emotion: no space = ^[\S]*$
-  </script>-->
+	validation for emotion: no space = ^[\S]*$
+      </script>-->
 </body>
 </html>
