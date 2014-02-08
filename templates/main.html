@@ -12,9 +12,6 @@
 
 <body>
 
-<div class="navbar navbar-static-top">
-</div>
-
   <div class="container">
     <div align="center">
       <font face="georgia"><h1>How am I Feeling Right Now?</h1></font>
@@ -23,7 +20,8 @@
 	<p align="center"><button name="emotion" class="btn btn-large btn-info" type="submit" value="emotion">Feel</button></p>
       </form>
       {% if answer %}
-      <h3>We are <font color="red">{{ confidence }}% </font> positive that you feel <font color="red">{{ positive }} </font> right now!</h3>
+      <h3>You have scored <font color = "#11ccff">{{ confidence }} </font></h3>
+      <h3>You are feeling <font color="#11ccff">{{positive}}</font> now</h3>
       {% endif %}
     </div>
   </div>
