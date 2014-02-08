@@ -1,0 +1,6 @@
+response = unirest.post("http://httpbin.org/post", headers={ "Accept": "application/json" }, params={ "parameter": 23, "foo": "bar" })
+
+response.code # The HTTP status code
+response.headers # The HTTP headers
+response.body # The parsed response
+response.raw_body # The unparsed response

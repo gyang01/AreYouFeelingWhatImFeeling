@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<form method="POST">
+
 <head>
   <meta charset="utf-8" name="viewport" />
   <title>Feel Me?</title>
@@ -14,11 +14,16 @@
   <div class="container">
     <div align="center">
       <font face="georgia"><h1>How am I Feeling Right Now?</h1></font>
-      <form name="emotion-search" class="emotion-search">
+      <form method="POST" action="" name="emotion-search" class="emotion-search">
 	<input name="emotionvalue" id="emotionvalue" type="text" placeholder="Enter sentence." class="emotion">
 	<p align="center"><button name="emotion" id="emotion" class="btn btn-large btn-info" name="feel" type="submit">Feel</button></p>
       </form>
+      {% if answer %}
+      <h3>You feel {positive} right now!</h3>
+      <h3>You have {confidence}% confidence!</h3>
+      {% endif %}
     </div>
+
   </div>
   <script src="static/js/jquery-1.11.1.min.js"/>
 <!--  <script src="static/js/validate.min.js"/>
@@ -38,5 +43,4 @@
      validation for emotion: no space = ^[\S]*$
   </script>-->
 </body>
-</form>
 </html>
